@@ -1,12 +1,13 @@
 import React, { createContext } from 'react';
 import Context from './practice/context';
 import Ref from './practice/ref';
-import Rendering from './practice/rendering';
+import Rendering1 from './practice/rendering1';
+import Rendering2 from './practice/rendering2';
 
 function App() {
   
   return (
-    <Rendering />
+    <Rendering2 />
   );
 }
 

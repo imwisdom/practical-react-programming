@@ -1,7 +1,7 @@
 import { useState } from "react";
 import MyComponent from "./MyComponent";
 
-export default function Rendering(){
+export default function Rendering1(){
     const [value1, setValue1] = useState(0);
     const [value2, setValue2] = useState(0);
 
