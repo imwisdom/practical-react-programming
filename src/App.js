@@ -1,10 +1,10 @@
 import React, { createContext } from 'react';
-import ReduxApp from './practice/redux/reduxApp';
+import ReduxApp2 from './practice/redux/reduxApp2';
 
 function App() {
   
   return (
-    <ReduxApp />
+    <ReduxApp2 />
   );
 }
 

@@ -32,6 +32,7 @@ store.subscribe(() => {
     prevState = state;
 });
 
+//각 액션에 대한 처리가 끝난 뒤 subscribe 호출
 store.dispatch({type: 'INCREMENT'});
 store.dispatch({type: 'OTHER_ACTION'});
 store.dispatch({type: 'INCREMENT'});
