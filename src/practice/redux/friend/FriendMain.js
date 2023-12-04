@@ -3,7 +3,7 @@ import { getNextFriend } from "../common/mockData";
 import FriendList from "./FriendList";
 import NumberSelect from "./NumberSelect";
 import { MAX_AGE_LIMIT, MAX_SHOW_LIMIT } from "./common";
-import { addFriend, setAgeLimit, setShowLimit } from "./state";
+import { addFriend, setValue } from "./state";
 import { getAgeLimit, getFriendsWithAgeLimit, getFriendsWithAgeShowLimit, getShowLimit } from "./state/selector";
 
 export default function FriendMain(){
@@ -33,6 +33,7 @@ export default function FriendMain(){
     , shallowEqual);
     const dispatch = useDispatch();
     function onAdd(){
+        dispatch(setValue('name', 'mike'));
         const friend = getNextFriend();
         dispatch(addFriend(friend));
     }
@@ -41,14 +42,14 @@ export default function FriendMain(){
         <div>
             <button onClick={onAdd}>친구 추가</button>
             <NumberSelect
-                onChange={v => dispatch(setAgeLimit(v))}
+                onChange={v => dispatch(setValue('ageLimit', v))}
                 value={ageLimit}
                 options={AGE_LIMIT_OPTIONS}
                 postfix="세 이하만 보기"
             />
             <FriendList friends={friendsWithAgeLimit} />
             <NumberSelect
-                onChange={v => dispatch(setShowLimit(v))}
+                onChange={v => dispatch(setValue('showList', v))}
                 value={showLimit}
                 options={SHOW_LIMIT_OPTIONS}
                 postfix="명 이하만 보기 (연령 제한 적용)"
