@@ -5,7 +5,13 @@ import { callApiLike } from "../../common/api";
 export function* fetchData(action) {
     yield put(actions.setLoading(true)); // put : redux 액션 dispatch
     yield put(actions.addLike(action.timeline.id, 1));
-    yield call(callApiLike); // call : redux 액션 실행
+    yield put(actions.setValue('error', ''));
+    try{
+        yield call(callApiLike);
+    }catch(error){
+        yield put(actions.setValue('error', error));
+        yield put(actions.addLike(action.timeline.id, -1));
+    }
     yield put(actions.setLoading(false)); //api 호출 후 로딩을 false로 변경
 }
 export default function* (){
